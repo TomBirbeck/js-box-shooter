@@ -16,6 +16,15 @@ export default class BulletController{
     }
 
     draw(ctx) {
-        this.bullets.forEach((bullet) => bullet.draw(ctx))
+        this.bullets.forEach((bullet) => {
+            if(this.isBulletOffScreen(bullet)){
+                const index = this.bullets.indexOf(bullet);
+                this.bullets.splice(index, 1);
+            }
+            bullet.draw(ctx)})
+    }
+
+    isBulletOffScreen(bullet){
+        return bullet.y <= -bullet.height;
     }
 }
