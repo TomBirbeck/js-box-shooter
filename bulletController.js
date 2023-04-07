@@ -27,7 +27,7 @@ export default class BulletController{
     collideWith(sprite) {
         return this.bullets.some(bullet => {
             if (bullet.collideWith(sprite)){
-                const index = bullets.indexOf(bullet);
+                const index = this.bullets.indexOf(bullet);
                 this.bullets.splice(index, 1);
                 return true;
             }

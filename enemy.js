@@ -23,4 +23,8 @@ export default class Enemy{
         ctx.font = '25px Arial';
         ctx.fillText(this.health, this.x + this.width/4.5, this.y + this.height/1.5)
     }
+
+    takeDamage(damage) {
+        this.health -= damage;
+    }
 }

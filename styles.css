@@ -6,7 +6,7 @@
   }
 
   html, body {
-    height: 100vh;
+    height: 100%;
   }
 
   /* img, picture, video, canvas, svg {
@@ -23,11 +23,7 @@
   }
 
  body {
-    background: linear-gradient(
-        0deg,
-        rgb(17,51,161) 0%,
-        rgb(136, 34, 195) 100%
-    );
+    background-color: blue;
  }
 
  main {

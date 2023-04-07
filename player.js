@@ -37,7 +37,6 @@ export default class Player{
 
     shoot(){
         if(this.shootPressed){
-            console.log("shoot");
             const speed = 5;
             const delay = 7;
             const damage = 1;
