@@ -24,6 +24,17 @@ export default class BulletController{
             bullet.draw(ctx)})
     }
 
+    collideWith(sprite) {
+        return this.bullets.some(bullet => {
+            if (bullet.collideWith(sprite)){
+                const index = bullets.indexOf(bullet);
+                this.bullets.splice(index, 1);
+                return true;
+            }
+            return false;
+        })
+    }
+
     isBulletOffScreen(bullet){
         return bullet.y <= -bullet.height;
     }
