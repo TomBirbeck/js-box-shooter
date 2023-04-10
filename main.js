@@ -4,6 +4,8 @@ import Enemy from "./enemy.js";
 import getRandomInt from "./randomInt.js";
 import endGame from "./endGame.js";
 import randomEnemyColor from "./enemyColor.js";
+import randomXDirection from "./randomXDirection.js";
+import randomYDirection from "./randomYDirection.js";
 const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext("2d");
 const scoreBoard = document.querySelector('.update-score');
@@ -15,23 +17,24 @@ finalScore.classList.add('hidden');
 canvas.width = 550;
 canvas.height = 500;
 
+let play = 0;
 let score = 0;
-let time = 20;
+let time = 120;
 let damage = 1;
 const bulletController = new BulletController(canvas);
 const player = new Player(canvas.width/2.2, canvas.height/1.3, damage, bulletController);
 
 let enemies = [
-    new Enemy(50, 20, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(150, 20, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(250, 20, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(350, 20, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(450, 20, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(50, 100, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(150, 100, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(250, 100, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(350, 100, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
-    new Enemy(450, 100, randomEnemyColor(), getRandomInt(1,20), 'left', 'down'),
+    new Enemy(50, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(150, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(250, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(350, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(450, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(50, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(150, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(250, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(350, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+    new Enemy(450, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
 ]
 
 const gameLoop = () => {
@@ -67,16 +70,16 @@ const gameLoop = () => {
         })
     if (enemies.length <= 0){
         enemies = [
-            new Enemy(50, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(150, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(250, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(350, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(450, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(50, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(150, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(250, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(350, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-            new Enemy(450, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
+            new Enemy(50, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(150, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(250, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(350, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(450, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(50, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(150, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(250, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(350, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+            new Enemy(450, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
         ]
     }
 }
@@ -93,7 +96,8 @@ const countDown = () => {
         time--
     }
     if (time <= 0){
-        endGame(canvas, finalScore)
+        endGame(canvas, finalScore);
+        play = 0;
     }
 }
 
@@ -102,18 +106,19 @@ const res = () => {
     canvas.classList.remove('hidden');
     scoreBoard.textContent = 0;
     score = 0;
-    time = 20;
+    time = 120;
+    play = 1;
     enemies = [
-        new Enemy(50, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(150, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(250, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(350, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(450, 20, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(50, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(150, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(250, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(350, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
-        new Enemy(450, 100, randomEnemyColor(), getRandomInt(1,20), 'left'),
+        new Enemy(50, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(150, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(250, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(350, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(450, 20, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(50, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(150, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(250, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(350, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
+        new Enemy(450, 100, randomEnemyColor(), getRandomInt(1,20), randomXDirection(), randomYDirection()),
     ]
 }
 
