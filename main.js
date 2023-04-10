@@ -9,6 +9,7 @@ const scoreBoard = document.querySelector('.update-score');
 const timer = document.querySelector('.update-time');
 const finalScore = document.querySelector('.final-score');
 const final = document.querySelector('.final');
+const reset = document.querySelector('.reset-button');
 finalScore.classList.add('hidden');
 canvas.width = 550;
 canvas.height = 500;
@@ -82,6 +83,28 @@ const countDown = () => {
         endGame(canvas, finalScore)
     }
 }
+
+const res = () => {
+    finalScore.classList.add('hidden');
+    canvas.classList.remove('hidden');
+    scoreBoard.textContent = 0;
+    score = 0;
+    time = 20;
+    enemies = [
+        new Enemy(50, 20, 'green', getRandomInt(1,20)),
+        new Enemy(150, 20, 'red', getRandomInt(1,20)),
+        new Enemy(250, 20, 'orange', getRandomInt(1,20)),
+        new Enemy(350, 20, 'gold', getRandomInt(1,20)),
+        new Enemy(450, 20, 'blue', getRandomInt(1,20)),
+        new Enemy(50, 100, 'yellow', getRandomInt(1,20)),
+        new Enemy(150, 100, 'green', getRandomInt(1,20)),
+        new Enemy(250, 100, 'gold', getRandomInt(1,20)),
+        new Enemy(350, 100, 'blue', getRandomInt(1,20)),
+        new Enemy(450, 100, 'green', getRandomInt(1,20)),
+    ]
+}
+
+reset.addEventListener('click', res)
 
 setInterval(gameLoop, 1000/ 60)
 setInterval(countDown, 1000)
