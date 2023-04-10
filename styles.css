@@ -37,3 +37,19 @@
     font-size: 3rem;
     color: lightgray;
  }
+
+ .score-time-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0rem;
+  color: lightgray;
+ }
+
+ .score {
+    font-size: 2rem;
+ }
+
+ .timer {
+    font-size: 2rem;
+ }

@@ -21,7 +21,7 @@ export default class Enemy{
 
         ctx.fillStyle = 'black';
         ctx.font = '25px Arial';
-        ctx.fillText(this.health, this.x + this.width/4.5, this.y + this.height/1.5)
+        ctx.fillText(this.health, this.x + this.width/5, this.y + this.height/1.5)
     }
 
     takeDamage(damage) {
