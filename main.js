@@ -2,15 +2,19 @@ import Player from "./player.js";
 import BulletController from "./bulletController.js";
 import Enemy from "./enemy.js";
 import getRandomInt from "./randomInt.js";
+import endGame from "./endGame.js";
 const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext("2d");
 const scoreBoard = document.querySelector('.update-score');
 const timer = document.querySelector('.update-time');
+const finalScore = document.querySelector('.final-score');
+const final = document.querySelector('.final');
+finalScore.classList.add('hidden');
 canvas.width = 550;
 canvas.height = 500;
 
 let score = 0;
-let time = 120;
+let time = 20;
 const bulletController = new BulletController(canvas);
 const player = new Player(canvas.width/2.2, canvas.height/1.3, bulletController);
 
@@ -41,6 +45,7 @@ const gameLoop = () => {
                 enemies.splice(index, 1);
                 score++
                 scoreBoard.textContent = score;
+                final.textContent= score;
                 }
             } else {
                 enemy.draw(ctx)
@@ -60,7 +65,6 @@ const gameLoop = () => {
             new Enemy(450, 100, 'green', getRandomInt(1,20)),
         ]
     }
-    
 }
 
 const setCommonStyles = () => {
@@ -69,13 +73,15 @@ const setCommonStyles = () => {
     ctx.lineJoin = 'bevel';
     ctx.lineWidth = 5;
 }
+
 const countDown = () => {
     if (time > 0){
-        time = time - 1
+        time--
     }
-   console.log(time)
+    if (time <= 0){
+        endGame(canvas, finalScore)
+    }
 }
-
 
 setInterval(gameLoop, 1000/ 60)
 setInterval(countDown, 1000)
