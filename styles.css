@@ -38,6 +38,12 @@
     color: lightgray;
  }
 
+ .start-button {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: yellow;
+ }
+
  .score-time-container {
   width: 50%;
   display: flex;
@@ -52,6 +58,26 @@
 
  .timer {
     font-size: 2rem;
+ }
+
+ .final-score {
+  height: 20vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: white;
+  font-size: 2rem;;
+ }
+
+ .reset-button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: yellow;
+  font-size: 1rem;
  }
 
  .hidden {
