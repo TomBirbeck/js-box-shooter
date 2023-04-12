@@ -7,6 +7,7 @@ export default class Player{
         this.height = 50;
         this.speed = 4;
         this.damage = damage;
+        this.direction = 1;
 
         document.addEventListener('keydown', this.keydown);
         document.addEventListener('keyup', this.keyup);
@@ -52,9 +53,25 @@ export default class Player{
         if(this.shootPressed){
             const speed = 5;
             const delay = 7;
-            const bulletX = this.x + this.width/2;
-            const bulletY = this.y;
-            this.bulletController.shoot(bulletX, bulletY, speed, this.damage, delay);
+            let bulletX;
+            let bulletY;
+            if (this.direction === 1){
+                bulletX = this.x + this.width/2;
+                bulletY = this.y;
+            }
+            if (this.direction === 2){
+                bulletX = this.x + this.width;
+                bulletY = this.y + this.height/2;
+            }
+            if (this.direction === 3){
+                bulletX = this.x + this.width/2;
+                bulletY = this.y + this.height;
+            }
+            if (this.direction === 4){
+                bulletX = this.x;
+                bulletY = this.y + this.height/2;
+            }
+            this.bulletController.shoot(bulletX, bulletY, speed, this.damage, delay, this.direction);
         }
     }
 
@@ -73,6 +90,14 @@ export default class Player{
         }
         if (e.code === "Space"){
             this.shootPressed = true;
+        }
+        if (e.code === "KeyX"){
+            if (this.direction < 4){
+                this.direction++
+            }
+            else {
+                this.direction = 1;
+            }
         }
     }
     keyup = (e) => {
