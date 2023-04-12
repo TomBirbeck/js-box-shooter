@@ -24,15 +24,27 @@ export default class Player{
     move(){
         if(this.downPressed){
             this.y += this.speed;
+            if (this.y - this.height >= 500){
+                this.y = 0
+            }
         }
         if(this.upPressed){
             this.y -= this.speed;
+            if (this.y + this.height <= 0){
+                this.y = 500
+            }
         }
         if(this.leftPressed){
             this.x -= this.speed;
+            if (this.x + this.width <= 0){
+                this.x = 550
+            }
         }
         if(this.rightPressed){
             this.x += this.speed;
+            if (this.x - this.width >= 550){
+                this.x = 0
+            }
         }
     }
 
