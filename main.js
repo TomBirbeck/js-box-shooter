@@ -19,7 +19,7 @@ canvas.width = 550;
 canvas.height = 500;
 
 let score = 0;
-let time = 20;
+let time = 120;
 let damage = 1;
 const bulletController = new BulletController(canvas);
 const player = new Player(canvas.width/2.2, canvas.height/1.3, damage, bulletController);
@@ -81,6 +81,7 @@ const gameLoop = () => {
             new Enemy(350, 100, randomEnemyColor(), getRandomInt(1,15), randomXDirection(), randomYDirection()),
             new Enemy(450, 100, randomEnemyColor(), getRandomInt(1,15), randomXDirection(), randomYDirection()),
         ]
+        time += 10;
     }
 }
 
@@ -116,7 +117,7 @@ const res = () => {
     canvas.classList.remove('hidden');
     scoreBoard.textContent = 0;
     score = 0;
-    time = 20;
+    time = 120;
     enemies = [
         new Enemy(50, 20, randomEnemyColor(), getRandomInt(1,15), randomXDirection(), randomYDirection()),
         new Enemy(150, 20, randomEnemyColor(), getRandomInt(1,15), randomXDirection(), randomYDirection()),
