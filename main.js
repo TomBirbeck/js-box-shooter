@@ -102,8 +102,8 @@ const countDown = () => {
     }
 }
 
-let game = setInterval(gameLoop, 1000/60);
-let count = setInterval(countDown, 1000);
+let game;
+let count;
 
 const playGame = () => {
     clearIntervals()
@@ -143,5 +143,3 @@ const clearIntervals= () => {
 clearInterval(game)
 clearInterval(count)
 }
-
-clearIntervals()
