@@ -56,20 +56,20 @@ export default class Player{
             let bulletX;
             let bulletY;
             if (this.direction === 1){
-                bulletX = this.x + this.width/2;
+                bulletX = (this.x + this.width/2) - 4;
                 bulletY = this.y;
             }
             if (this.direction === 2){
                 bulletX = this.x + this.width;
-                bulletY = this.y + this.height/2;
+                bulletY = (this.y + this.height/2) - 4;
             }
             if (this.direction === 3){
-                bulletX = this.x + this.width/2;
+                bulletX = (this.x + this.width/2) - 4;
                 bulletY = this.y + this.height;
             }
             if (this.direction === 4){
                 bulletX = this.x;
-                bulletY = this.y + this.height/2;
+                bulletY = (this.y + this.height/2) - 4;
             }
             this.bulletController.shoot(bulletX, bulletY, speed, this.damage, delay, this.direction);
         }
