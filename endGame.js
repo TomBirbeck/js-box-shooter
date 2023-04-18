@@ -1,7 +1,5 @@
-const endGame = (canvas, div, array) => {
-    canvas.classList.add('hidden');
+const endGame = (div) => {
     div.classList.remove('hidden');
-    array = []
 }
 
 export default endGame

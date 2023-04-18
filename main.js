@@ -98,7 +98,7 @@ const countDown = () => {
     }
     if (time <= 0){
         clearIntervals();
-        endGame(canvas, finalScore);
+        endGame(finalScore);
     }
 }
 
@@ -109,13 +109,13 @@ const playGame = () => {
     clearIntervals()
     game = setInterval(gameLoop, 1000/60);
     count = setInterval(countDown, 1000);
-
 }
 
 const res = () => {
     finalScore.classList.add('hidden');
-    canvas.classList.remove('hidden');
     scoreBoard.textContent = 0;
+    player.x = canvas.width/2.2;
+    player.y = canvas.height/1.3;
     score = 0;
     time = 120;
     enemies = [
