@@ -103,8 +103,13 @@
 
 .instructions ul li {
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
  .hidden {
   display: none;
  }
+
+.canvas {
+  border: solid 4px white;
+}

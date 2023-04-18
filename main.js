@@ -116,6 +116,7 @@ const res = () => {
     scoreBoard.textContent = 0;
     player.x = canvas.width/2.2;
     player.y = canvas.height/1.3;
+    bulletController.bullets = [];
     score = 0;
     time = 120;
     enemies = [
