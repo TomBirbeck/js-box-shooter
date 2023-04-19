@@ -1,7 +1,17 @@
 # Box Shooter
 A Browser game created using JavaScript, HTML and CSS.\
 The game involves a player moving around to shoot down enemies that are moving around the game zone within a time limit.\
-Each time a player clears a set of enemies extra time will be added on to their remaining time.
+
+- Play the game here [Box Shooter](https://tombirbeck.github.io/js-box-shooter/)
+
+## How the game works
+
+- When the game begins a player is spawned along with 10 enemies and the timer will start counting down.
+- The player can use the direction keys to move around the zone and shoot bullets with the space bar.
+- Pressing the 'x' key will change the direction of the bullets, working in a clockwise fashion.
+- Killing a set of enemies will add 10 seconds to the timer left and spawn a new set of enemies.
+- The game ends when the time runs out.
+
 ## How the code works
 \
 The game has custom classes for the player, enemies, the bullets and a bullet controller to manage a group of bullets.
@@ -25,6 +35,7 @@ It has methods to detect for the bullets colliding with an enemy element and for
 \
 The bullet controller class constructor takes in the canvas element.
 It has methods to shoot a bullet, check if a bullet has left the screen, check through an array that containers each bullet and use the bullet class collision detecion method, and to draw the array of bullets onto the screen.
+
 
 ## Helper functions
 
